@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: Include skeleton-ansible-role-with-test-user
+    - name: Include ansible-role-crowdstrike
       ansible.builtin.include_role:
-        name: skeleton-ansible-role-with-test-user
+        name: ansible-role-crowdstrike

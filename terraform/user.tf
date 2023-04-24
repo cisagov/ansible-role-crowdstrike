@@ -10,6 +10,6 @@ module "user" {
     aws.images-staging-ssm                 = aws.images_staging_ssm
   }
 
-  entity         = "skeleton-ansible-role-with-test-user"
+  entity         = "ansible-role-crowdstrike"
   ssm_parameters = ["/github/personal_authorization_token"]
 }

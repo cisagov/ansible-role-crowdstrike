@@ -1,7 +1,7 @@
-# skeleton-ansible-role-with-test-user #
+# ansible-role-crowdstrike #
 
-[![GitHub Build Status](https://github.com/cisagov/skeleton-ansible-role-with-test-user/workflows/build/badge.svg)](https://github.com/cisagov/skeleton-ansible-role-with-test-user/actions)
-[![CodeQL](https://github.com/cisagov/skeleton-ansible-role-with-test-user/workflows/CodeQL/badge.svg)](https://github.com/cisagov/skeleton-ansible-role-with-test-user/actions/workflows/codeql-analysis.yml)
+[![GitHub Build Status](https://github.com/cisagov/ansible-role-crowdstrike/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-crowdstrike/actions)
+[![CodeQL](https://github.com/cisagov/ansible-role-crowdstrike/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-crowdstrike/actions/workflows/codeql-analysis.yml)
 
 This is a skeleton project that can be used to quickly get a new
 [cisagov](https://github.com/cisagov) Ansible role GitHub project
@@ -60,7 +60,7 @@ of the Project Setup README.
 
 If you have appropriate permissions for the repository you can view
 existing secrets on the [appropriate
-page](https://github.com/cisagov/skeleton-ansible-role-with-test-user/settings/secrets)
+page](https://github.com/cisagov/ansible-role-crowdstrike/settings/secrets)
 in the repository's settings.
 
 ## Requirements ##
