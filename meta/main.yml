@@ -1,11 +1,23 @@
 ---
-dependencies: []
+dependencies:
+  - name: dhs_certificates
+    src: https://github.com/cisagov/ansible-role-dhs-certificates
+  # Note that the value of third_party_bucket_name used for this
+  # Ansible role will trickle down to this dependent role.  For
+  # details, see the last paragraph of this section of the Ansible
+  # documentation:
+  # https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#using-roles-at-the-play-level
+  - name: cdm_certificates
+    src: https://github.com/cisagov/ansible-role-cdm-certificates
+
 galaxy_info:
-  author: First Last
+  author: Shane Frasier
   company: CISA Cyber Assessments
-  description: Skeleton Ansible role with test user
+  description: Install CrowdStrike Falcon sensor for CISA CDM
   galaxy_tags:
-    - skeleton
+    - cdm
+    - crowdstrike
+    - falcon
   license: CC0
   # With the release of version 2.10, Ansible finally correctly
   # identifies Kali Linux as being the Kali distribution of the Debian
@@ -35,4 +47,4 @@ galaxy_info:
         - bionic
         - focal
         - jammy
-  role_name: skeleton_with_test_user
+  role_name: crowdstrike
