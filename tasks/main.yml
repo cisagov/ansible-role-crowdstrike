@@ -48,19 +48,6 @@
       ansible.builtin.service:
         enabled: yes
         name: falcon-sensor
-        # Required to set the update_hostname option below
-        # state: started
-
-    # - name: Configure the CrowdStrike Falcon sensor to send hostname updates
-    #   ansible.builtin.command:
-    #     argv:
-    #       - "{{ install_directory }}/sbin/nessuscli"
-    #       - fix
-    #       - --set
-    #       - update_hostname=yes
-    #   changed_when: nessuscli_output.rc == 0
-    #   failed_when: nessuscli_output.rc != 0
-    #   register: nessuscli_output
 
     - name: Delete local copy of the CrowdStrike Falcon sensor system package
       ansible.builtin.file:
