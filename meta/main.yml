@@ -13,7 +13,7 @@ dependencies:
 galaxy_info:
   author: Shane Frasier
   company: CISA Cyber Assessments
-  description: Install CrowdStrike Falcon sensor for CISA CDM
+  description: Install the CrowdStrike Falcon sensor for CISA CDM
   galaxy_tags:
     - cdm
     - crowdstrike

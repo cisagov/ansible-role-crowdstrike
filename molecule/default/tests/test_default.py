@@ -12,7 +12,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 def test_falcon_sensor_installed(host):
-    """Test that CrowdStrike Falcon sensor was installed."""
+    """Test that the CrowdStrike Falcon sensor was installed."""
     dir_full_path = "/opt/CrowdStrike"
     directory = host.file(dir_full_path)
     assert directory.exists
@@ -22,6 +22,6 @@ def test_falcon_sensor_installed(host):
 
 
 def test_falcon_sensor_enabled(host):
-    """Test that CrowdStrike Falcon sensor is enabled."""
+    """Test that the CrowdStrike Falcon sensor is enabled."""
     svc = host.service("falcon-sensor")
     assert svc.is_enabled

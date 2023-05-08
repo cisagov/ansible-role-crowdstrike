@@ -3,7 +3,7 @@
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-crowdstrike/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-crowdstrike/actions)
 [![CodeQL](https://github.com/cisagov/ansible-role-crowdstrike/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-crowdstrike/actions/workflows/codeql-analysis.yml)
 
-This is an Ansible role for installing [CrowdStrike
+This is an Ansible role for installing the [CrowdStrike
 Falcon](https://www.crowdstrike.com/products/) sensor, specifically
 for the CISA Continuous Diagnostics and Mitigation (CDM) environment.
 
@@ -64,7 +64,7 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| install_directory | The directory where CrowdStrike Falcon sensor is installed. | `/opt/CrowdStrike` | No |
+| install_directory | The directory where the CrowdStrike Falcon sensor is installed. | `/opt/CrowdStrike` | No |
 | third_party_bucket_name | The name of the AWS S3 bucket where third-party software is located. | `cisa-cool-third-party-production` | No |
 
 ## Dependencies ##

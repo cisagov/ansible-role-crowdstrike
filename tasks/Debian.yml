@@ -1,4 +1,4 @@
 ---
-- name: Install CrowdStrike Falcon sensor (Debian)
+- name: Install the CrowdStrike Falcon sensor (Debian)
   ansible.builtin.apt:
     deb: /tmp/{{ package_object_name }}

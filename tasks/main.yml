@@ -11,14 +11,14 @@
         - "{{ role_path }}/vars"
 
 # Check if CrowdStrike Falcon sensor is already installed
-- name: Check if CrowdStrike Falcon sensor is already installed
+- name: Check if the CrowdStrike Falcon sensor is already installed
   ansible.builtin.stat:
     path: "{{ install_directory }}"
   register: falcon_directory
 
-- name: Install CrowdStrike Falcon sensor
+- name: Install the CrowdStrike Falcon sensor
   block:
-    - name: Grab CrowdStrike Falcon sensor system package from S3
+    - name: Grab the CrowdStrike Falcon sensor system package from S3
       amazon.aws.aws_s3:
         bucket: "{{ third_party_bucket_name }}"
         object: "{{ package_object_name }}"
@@ -62,14 +62,14 @@
     #   failed_when: nessuscli_output.rc != 0
     #   register: nessuscli_output
 
-    - name: Delete local copy of CrowdStrike Falcon sensor system package
+    - name: Delete local copy of the CrowdStrike Falcon sensor system package
       ansible.builtin.file:
         path: /tmp/{{ package_object_name }}
         state: absent
       become: no
       delegate_to: localhost
 
-    - name: Delete remote copy of CrowdStrike Falcon sensor system package
+    - name: Delete remote copy of the CrowdStrike Falcon sensor system package
       ansible.builtin.file:
         path: /tmp/{{ package_object_name }}
         state: absent
