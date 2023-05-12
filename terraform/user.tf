@@ -32,23 +32,3 @@ resource "aws_iam_role_policy_attachment" "thirdpartybucketread_staging" {
   policy_arn = module.staging_bucket_access.policy.arn
   role       = module.user.staging_role.name
 }
-
-# Attach 3rd party S3 bucket read-only policy from
-# cisagov/ansible-role-cdm-certificates to the production role used by
-# the test user
-resource "aws_iam_role_policy_attachment" "thirdpartybucketread_certificates_production" {
-  provider = aws.images_production_provisionaccount
-
-  policy_arn = data.terraform_remote_state.ansible_role_cdm_certificates.outputs.production_bucket_policy.arn
-  role       = module.user.production_role.name
-}
-
-# Attach 3rd party S3 bucket read-only policy from
-# cisagov/ansible-role-cdm-certificates to the staging role used by
-# the test user
-resource "aws_iam_role_policy_attachment" "thirdpartybucketread_certificates_staging" {
-  provider = aws.images_staging_provisionaccount
-
-  policy_arn = data.terraform_remote_state.ansible_role_cdm_certificates.outputs.staging_bucket_policy.arn
-  role       = module.user.staging_role.name
-}

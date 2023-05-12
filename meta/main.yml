@@ -1,15 +1,5 @@
 ---
-dependencies:
-  - name: dhs_certificates
-    src: https://github.com/cisagov/ansible-role-dhs-certificates
-  # Note that the value of third_party_bucket_name used for this
-  # Ansible role will trickle down to this dependent role.  For
-  # details, see the last paragraph of this section of the Ansible
-  # documentation:
-  # https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#using-roles-at-the-play-level
-  - name: cdm_certificates
-    src: https://github.com/cisagov/ansible-role-cdm-certificates
-
+dependencies: []
 galaxy_info:
   author: Shane Frasier
   company: CISA Cyber Assessments

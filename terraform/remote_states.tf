@@ -34,19 +34,6 @@ data "terraform_remote_state" "images_production" {
   workspace = "production"
 }
 
-data "terraform_remote_state" "ansible_role_cdm_certificates" {
-  backend = "s3"
-
-  config = {
-    bucket         = "cisa-cool-terraform-state"
-    dynamodb_table = "terraform-state-lock"
-    encrypt        = true
-    key            = "ansible-role-cdm-certificates/terraform.tfstate"
-    profile        = "cool-terraform-backend"
-    region         = "us-east-1"
-  }
-}
-
 data "terraform_remote_state" "users" {
   backend = "s3"
 
