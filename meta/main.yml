@@ -17,24 +17,27 @@ galaxy_info:
   min_ansible_version: "2.10"
   namespace: cisagov
   platforms:
-    - name: Amazon Linux 2023
-      versions:
-        - any
+    # We do not have an installation package for Amazon Linux 2023.
+    # - name: Amazon Linux 2023
+    #   versions:
+    #     - any
     - name: Debian
       versions:
         - buster
         - bullseye
         - bookworm
-    - name: Fedora
-      versions:
-        - "36"
-        - "37"
+    # We do not have an installation package for Fedora.
+    # - name: Fedora
+    #   versions:
+    #     - "36"
+    #     - "37"
     - name: Kali
       versions:
         - "2023"
-    - name: Ubuntu
-      versions:
-        - bionic
-        - focal
-        - jammy
+    # We do not have an installation package for Ubuntu.
+    # - name: Ubuntu
+    #   versions:
+    #     - bionic
+    #     - focal
+    #     - jammy
   role_name: crowdstrike
