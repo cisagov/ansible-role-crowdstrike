@@ -69,8 +69,7 @@ None.
 
 ## Dependencies ##
 
-- [cisagov/ansible-role-cdm-certificates](https://github.com/cisagov/ansible-role-cdm-certificates)
-- [cisagov/ansible-role-dhs-certificates](https://github.com/cisagov/ansible-role-dhs-certificates)
+None.
 
 ## Example Playbook ##
 
