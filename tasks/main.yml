@@ -60,5 +60,4 @@
       ansible.builtin.file:
         path: /tmp/{{ package_object_name }}
         state: absent
-
   when: not falcon_directory.stat.exists
