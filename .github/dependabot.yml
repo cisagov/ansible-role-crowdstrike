@@ -33,6 +33,6 @@ updates:
     directory: "/terraform"
     schedule:
       interval: "weekly"
-    # ignore:
-    #   # Managed by cisagov/ansible-role-crowdstrike
-    #   - dependency-name: "hashicorp/aws"
+    ignore:
+      # Managed by cisagov/skeleton-ansible-role-with-test-user
+      - dependency-name: "hashicorp/aws"
