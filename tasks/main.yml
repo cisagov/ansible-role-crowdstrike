@@ -17,6 +17,7 @@
   register: falcon_directory
 
 - name: Install the CrowdStrike Falcon sensor
+  when: not falcon_directory.stat.exists
   block:
     - name: Grab the CrowdStrike Falcon sensor system package from S3
       amazon.aws.aws_s3:
@@ -60,4 +61,3 @@
       ansible.builtin.file:
         path: /tmp/{{ package_object_name }}
         state: absent
-  when: not falcon_directory.stat.exists
