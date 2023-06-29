@@ -64,8 +64,8 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| install_directory | The directory where the CrowdStrike Falcon sensor is installed. | `/opt/CrowdStrike` | No |
-| third_party_bucket_name | The name of the AWS S3 bucket where third-party software is located. | `cisa-cool-third-party-production` | No |
+| crowdstrike_install_directory | The directory where the CrowdStrike Falcon sensor is installed. | `/opt/CrowdStrike` | No |
+| crowdstrike_third_party_bucket_name | The name of the AWS S3 bucket where third-party software is located. | `cisa-cool-third-party-production` | No |
 
 ## Dependencies ##
 

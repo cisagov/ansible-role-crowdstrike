@@ -13,14 +13,15 @@
 # Check if CrowdStrike Falcon sensor is already installed
 - name: Check if the CrowdStrike Falcon sensor is already installed
   ansible.builtin.stat:
-    path: "{{ install_directory }}"
+    path: "{{ crowdstrike_install_directory }}"
   register: falcon_directory
 
 - name: Install the CrowdStrike Falcon sensor
+  when: not falcon_directory.stat.exists
   block:
     - name: Grab the CrowdStrike Falcon sensor system package from S3
       amazon.aws.aws_s3:
-        bucket: "{{ third_party_bucket_name }}"
+        bucket: "{{ crowdstrike_third_party_bucket_name }}"
         object: "{{ package_object_name }}"
         dest: /tmp/{{ package_object_name }}
         mode: get
@@ -60,4 +61,3 @@
       ansible.builtin.file:
         path: /tmp/{{ package_object_name }}
         state: absent
-  when: not falcon_directory.stat.exists
