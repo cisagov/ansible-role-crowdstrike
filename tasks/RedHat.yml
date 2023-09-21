@@ -1,0 +1,36 @@
+---
+- name: Grab CrowdStrike Falcon system package GPG key from S3
+  ansible.builtin.aws_s3:
+    bucket: "{{ crowdstrike_third_party_bucket_name }}"
+    object: "{{ package_gpg_key_object_name }}"
+    dest: /tmp/{{ package_gpg_key_object_name }}
+    mode: get
+  become: no
+  delegate_to: localhost
+
+- name: Copy the CrowdStrike Falcon system package GPG key
+  ansible.builtin.copy:
+    dest: /tmp/{{ package_gpg_key_object_name }}
+    mode: 0700
+    src: /tmp/{{ package_gpg_key_object_name }}
+
+- name: Import CrowdStrike Falcon system package GPG key
+  ansible.builtin.rpm_key:
+    key: /tmp/{{ package_gpg_key_object_name }}
+
+- name: Install CrowdStrike Falcon (RedHat)
+  ansible.builtin.yum:
+    name:
+      - /tmp/{{ package_object_name }}
+
+- name: Delete local copy of CrowdStrike Falcon system package GPG key
+  ansible.builtin.file:
+    path: /tmp/{{ package_gpg_key_object_name }}
+    state: absent
+  become: no
+  delegate_to: localhost
+
+- name: Delete remote copy of CrowdStrike Falcon system package GPG key
+  ansible.builtin.file:
+    path: /tmp/{{ package_gpg_key_object_name }}
+    state: absent
