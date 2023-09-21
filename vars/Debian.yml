@@ -1,4 +1,4 @@
 ---
 # The name of the S3 object corresponding to the CrowdStrike Falcon
 # sensor system package
-package_object_name: falcon-sensor_6.45.0-14203_amd64.deb
+package_object_name: falcon-sensor_6.54.0-15110_amd64.deb
