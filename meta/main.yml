@@ -17,10 +17,9 @@ galaxy_info:
   min_ansible_version: "2.10"
   namespace: cisagov
   platforms:
-    # We do not have an installation package for Amazon Linux 2023.
-    # - name: Amazon Linux
-    #   versions:
-    #     - "2023"
+    - name: Amazon Linux
+      versions:
+        - "2023"
     - name: Debian
       versions:
         - buster
