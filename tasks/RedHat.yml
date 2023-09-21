@@ -2,9 +2,9 @@
 - name: Grab CrowdStrike Falcon system package GPG key from S3
   ansible.builtin.aws_s3:
     bucket: "{{ crowdstrike_third_party_bucket_name }}"
-    object: "{{ package_gpg_key_object_name }}"
     dest: /tmp/{{ package_gpg_key_object_name }}
     mode: get
+    object: "{{ package_gpg_key_object_name }}"
   become: no
   delegate_to: localhost
 
