@@ -19,7 +19,7 @@
     key: /tmp/{{ package_gpg_key_object_name }}
 
 - name: Install CrowdStrike Falcon (RedHat)
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
     name:
       - /tmp/{{ package_object_name }}
 
