@@ -20,7 +20,9 @@ variable "production_objects" {
   type        = list(string)
   description = "The Falcon sensor system package objects inside the production bucket."
   default = [
+    "Falcon Linux Sensor RPM signing GPG key",
     "falcon-sensor_*_amd64.deb",
+    "falcon-sensor-*.x86_64.rpm",
   ]
 }
 
@@ -34,7 +36,9 @@ variable "staging_objects" {
   type        = list(string)
   description = "The Falcon sensor system packages inside the staging bucket."
   default = [
+    "Falcon Linux Sensor RPM signing GPG key",
     "falcon-sensor_*_amd64.deb",
+    "falcon-sensor-*.x86_64.rpm",
   ]
 }
 

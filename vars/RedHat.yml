@@ -1,0 +1,8 @@
+---
+# The name of the S3 object corresponding to the CrowdStrike Falcon
+# sensor system package
+package_object_name: falcon-sensor-6.54.0-15110.el8.x86_64.rpm
+
+# The name of the S3 object corresponding to the GPG key for the
+# CrowdStrike Falcon system package
+package_gpg_key_object_name: "Falcon Linux Sensor RPM signing GPG key"
