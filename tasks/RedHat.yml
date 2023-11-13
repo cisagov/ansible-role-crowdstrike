@@ -8,7 +8,7 @@
 #   gpg: processing message failed: Unknown system error
 #
 # The GPG signing key we have for the RPM cannot be imported on Fedora
-# 38.  I get the following error:
+# 38 or 39.  I get the following error:
 #   error: Certificate 4727BBD5519B177F:
 #     The certificate is expired: The primary key is not live
 #   error: /tmp/Falcon Linux Sensor RPM signing GPG key: key 1 import failed.
@@ -24,10 +24,10 @@
         not_amazon: "{{ not ansible_distribution == 'Amazon' }}"
     - name: Set a fact denoting whether or not this is Fedora 38
       ansible.builtin.set_fact:
-        not_fedora_38: "{{ not (ansible_distribution == 'Fedora' and ansible_distribution_major_version == '38') }}"
+        not_fedora_38_or_39: "{{ not (ansible_distribution == 'Fedora' and (ansible_distribution_major_version == '38' or ansible_distribution_major_version == '39')) }}"
     - name: Set a fact denoting whether or not to import the GPG key
       ansible.builtin.set_fact:
-        import_gpg_signature_key: "{{ not_amazon and not_fedora_38 }}"
+        import_gpg_signature_key: "{{ not_amazon and not_fedora_38_or_39 }}"
 
 - name: Import CrowdStrike Falcon system package GPG key
   # See the comment block at the top of this file.
