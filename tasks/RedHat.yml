@@ -1,37 +1,5 @@
 ---
-# The GPG signing key we have for the RPM cannot be imported on Amazon
-# 2023.  I get the following error output:
-#   gpg: directory '/root/.gnupg' created
-#   gpg: keybox '/root/.gnupg/pubring.kbx' created
-#   gpg: WARNING: no command supplied.  Trying to guess what you mean ...
-#   gpg: no valid OpenPGP data found.
-#   gpg: processing message failed: Unknown system error
-#
-# The GPG signing key we have for the RPM cannot be imported on Fedora
-# 38 or 39.  I get the following error:
-#   error: Certificate 4727BBD5519B177F:
-#     The certificate is expired: The primary key is not live
-#   error: /tmp/Falcon Linux Sensor RPM signing GPG key: key 1 import failed.
-#
-# This is why we do not attempt to import the key on these platforms
-# and force dnf to install the corresponding package without checking
-# the GPG key.
-
-- name: Set a fact that denoting whether or not to import the GPG key
-  block:
-    - name: Set a fact denoting whether or not this is Amazon Linux
-      ansible.builtin.set_fact:
-        not_amazon: "{{ not ansible_distribution == 'Amazon' }}"
-    - name: Set a fact denoting whether or not this is Fedora 38
-      ansible.builtin.set_fact:
-        not_fedora_38_or_39: "{{ not (ansible_distribution == 'Fedora' and (ansible_distribution_major_version == '38' or ansible_distribution_major_version == '39')) }}"
-    - name: Set a fact denoting whether or not to import the GPG key
-      ansible.builtin.set_fact:
-        import_gpg_signature_key: "{{ not_amazon and not_fedora_38_or_39 }}"
-
 - name: Import CrowdStrike Falcon system package GPG key
-  # See the comment block at the top of this file.
-  when: import_gpg_signature_key
   block:
     - name: Grab CrowdStrike Falcon system package GPG key from S3
       ansible.builtin.aws_s3:
@@ -54,14 +22,10 @@
 
 - name: Install CrowdStrike Falcon (RedHat)
   ansible.builtin.dnf:
-    # See the comment block at the top of this file.
-    disable_gpg_check: "{{ not import_gpg_signature_key }}"
     name:
       - /tmp/{{ package_object_name }}
 
 - name: Delete copies of CrowdStrike Falcon system package GPG key
-  # See the comment block at the top of this file.
-  when: import_gpg_signature_key
   block:
     - name: Delete local copy of CrowdStrike Falcon system package GPG key
       ansible.builtin.file:
