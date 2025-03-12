@@ -5,3 +5,5 @@
     - name: Include ansible-role-crowdstrike
       ansible.builtin.include_role:
         name: ansible-role-crowdstrike
+      vars:
+        crowdstrike_third_party_bucket_name: "{{ lookup('env', 'THIRD_PARTY_BUCKET') }}"

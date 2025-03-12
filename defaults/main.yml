@@ -1,6 +1,3 @@
 ---
 # The directory where the CrowdStrike Falcon sensor is installed
 crowdstrike_install_directory: /opt/CrowdStrike
-
-# The name of the AWS S3 bucket where third-party software is located
-crowdstrike_third_party_bucket_name: cisa-cool-third-party-production

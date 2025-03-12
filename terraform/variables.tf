@@ -1,40 +1,37 @@
 # ------------------------------------------------------------------------------
+# Required parameters
+#
+# You must provide a value for each of these parameters.
+# ------------------------------------------------------------------------------
+
+variable "crowdstrike_bucket" {
+  description = "The name of the S3 bucket where the Crowdstrike files live."
+  nullable    = false
+  type        = string
+}
+
+variable "terraform_state_bucket" {
+  description = "The name of the S3 bucket where Terraform state is stored."
+  nullable    = false
+  type        = string
+}
+
+# ------------------------------------------------------------------------------
 # Optional parameters
 #
 # These parameters have reasonable defaults.
 # ------------------------------------------------------------------------------
 
 variable "aws_region" {
-  type        = string
-  description = "The AWS region to deploy into (e.g. us-east-1)."
   default     = "us-east-1"
-}
-
-variable "production_bucket_name" {
+  description = "The AWS region to deploy into (e.g. us-east-1)."
+  nullable    = false
   type        = string
-  description = "The name of the S3 bucket where the production Falcon sensor system packages live."
-  default     = "cisa-cool-third-party-production"
 }
 
-variable "production_objects" {
+variable "crowdstrike_objects" {
   type        = list(string)
-  description = "The Falcon sensor system package objects inside the production bucket."
-  default = [
-    "Falcon Linux Sensor RPM signing GPG key 2023.gpg",
-    "falcon-sensor_*.deb",
-    "falcon-sensor-*.rpm",
-  ]
-}
-
-variable "staging_bucket_name" {
-  type        = string
-  description = "The name of the S3 bucket where the staging Falcon sensor system packages live."
-  default     = "cisa-cool-third-party-staging"
-}
-
-variable "staging_objects" {
-  type        = list(string)
-  description = "The Falcon sensor system packages inside the staging bucket."
+  description = "The Falcon sensor system package objects inside the bucket."
   default = [
     "Falcon Linux Sensor RPM signing GPG key 2023.gpg",
     "falcon-sensor_*.deb",
@@ -43,11 +40,11 @@ variable "staging_objects" {
 }
 
 variable "tags" {
-  type        = map(string)
-  description = "Tags to apply to all AWS resources created"
-
   default = {
     Team        = "VM Fusion - Development"
     Application = "ansible-role-crowdstrike testing"
   }
+  description = "Tags to apply to all AWS resources created"
+  nullable    = false
+  type        = map(string)
 }
