@@ -4,7 +4,9 @@
   vars:
     params:
       files:
-        - "{{ ansible_distribution }}_{{ ansible_distribution_release }}_{{ ansible_architecture }}.yml"
+        - >-
+          {{ ansible_distribution }}_{{ ansible_distribution_release
+          }}_{{ ansible_architecture }}.yml
         - "{{ ansible_distribution }}_{{ ansible_distribution_release }}.yml"
         - "{{ ansible_distribution }}_{{ ansible_architecture }}.yml"
         - "{{ ansible_distribution }}.yml"
@@ -32,7 +34,8 @@
 
     - name: Install CrowdStrike package file
       vars:
-        package_file: "{{ keys.s3_keys | select('search', package_file_regex) | first }}"
+        package_file: >-
+          {{ keys.s3_keys | select('search', package_file_regex) | first }}
       block:
         - name: Grab the CrowdStrike Falcon sensor system package from S3
           amazon.aws.s3_object:
@@ -46,7 +49,7 @@
         - name: Copy the CrowdStrike Falcon sensor system package
           ansible.builtin.copy:
             dest: /tmp/{{ package_file }}
-            mode: 0700
+            mode: u=rwx,g=,o=
             src: /tmp/{{ package_file }}
 
         - name: Load tasks file based on the OS type
