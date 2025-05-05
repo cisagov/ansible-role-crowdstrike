@@ -9,4 +9,5 @@ architectures:
 
 # A regex that will match the name of the CrowdStrike Falcon Sensor
 # package file that should be installed.
-package_file_regex: falcon-sensor_7.05.0-16004_{{ architectures[ansible_architecture] }}.deb
+package_file_regex: >-
+  falcon-sensor_7.05.0-16004_{{ architectures[ansible_architecture] }}.deb
