@@ -3,8 +3,8 @@
 # package file that should be installed.  Note that we force the
 # distribution name here, because what CrowdStrike Falcon Sensor uses
 # ("el[0-9]*") does not match what Ansible uses ("fedora").
-package_file_regex: falcon-sensor-7.06.0-16108.el[0-9]*.{{ ansible_architecture }}.rpm
+package_file_regex: falcon-sensor-7.26.0-17905.el[0-9]*.{{ ansible_architecture }}.rpm
 
 # The name of the S3 object corresponding to the GPG key for the
 # CrowdStrike Falcon system package
-package_gpg_key_object_name: Falcon Linux Sensor RPM signing GPG key 2023.gpg
+package_gpg_key_object_name: Falcon_Linux_Sensor_RPM_Signing_GPG_Key_2025.gpg
