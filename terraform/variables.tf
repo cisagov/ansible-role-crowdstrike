@@ -33,7 +33,8 @@ variable "crowdstrike_objects" {
   type        = list(string)
   description = "The Falcon sensor system package objects inside the bucket."
   default = [
-    "Falcon Linux Sensor RPM signing GPG key 2023.gpg",
+    "Falcon Linux Sensor*.gpg",
+    "Falcon_Linux_Sensor*.gpg",
     "falcon-sensor_*.deb",
     "falcon-sensor-*.rpm",
   ]
