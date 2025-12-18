@@ -1,6 +1,7 @@
 # ansible-role-crowdstrike #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-crowdstrike/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-crowdstrike/actions)
+[![License](https://img.shields.io/github/license/cisagov/ansible-role-crowdstrike)](https://spdx.org/licenses/)
 [![CodeQL](https://github.com/cisagov/ansible-role-crowdstrike/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-crowdstrike/actions/workflows/codeql-analysis.yml)
 
 This is an Ansible role for installing the [CrowdStrike
