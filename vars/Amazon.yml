@@ -7,7 +7,7 @@
 # Note also that we explicitly list amzn2023 to avoid conflict with
 # the amzn2 packages that are also provided.
 package_file_regex: >-
-  falcon-sensor-7.25.0-17804.amzn2023.{{ ansible_architecture }}.rpm
+  falcon-sensor-8.10.0-19403.amzn2023.{{ ansible_architecture }}.rpm
 
 # The name of the S3 object corresponding to the GPG key for the
 # CrowdStrike Falcon system package
